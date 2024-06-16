@@ -40,6 +40,12 @@ app.post('/names', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 }));
 // Endpoint to retrieve all names from the database
+
+app.get('/', (req, res) => {
+    res.send('Hello, world!');
+  });
+  
+
 app.get('/names', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield pool.query('SELECT * FROM names'); // Query all rows from the names table

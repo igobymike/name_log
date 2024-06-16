@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';  // Import body-parser to parse request bo
 import { Pool } from 'pg';        // Import Pool from pg to connect to PostgreSQL
 
 const app = express();            // Initialize the express application
-const port = 5432 || 5000;  // Use the port specified by Heroku or 5000 for local
+const port = process.env.PORT|| 5000;  // Use the port specified by Heroku or 5000 for local
 
 app.use(cors());                  // Enable CORS for all routes
 app.use(bodyParser.json());       // Enable parsing of JSON bodies
@@ -30,6 +30,11 @@ app.post('/names', async (req, res) => {
     console.error(err);  // Log any errors to the console
     res.status(500).json({ error: 'Database error' });  // Respond with a 500 status code and error message
   }
+});
+
+
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
 });
 
 // Endpoint to retrieve all names from the database
