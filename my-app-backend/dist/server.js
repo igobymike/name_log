@@ -17,7 +17,7 @@ const cors_1 = __importDefault(require("cors")); // Import CORS to handle cross-
 const body_parser_1 = __importDefault(require("body-parser")); // Import body-parser to parse request bodies
 const pg_1 = require("pg"); // Import Pool from pg to connect to PostgreSQL
 const app = (0, express_1.default)(); // Initialize the express application
-const port = 5432 || 5000; // Use the port specified by Heroku or 5000 for local
+const port = port = process.env.PORT  || 5000; // Use the port specified by Heroku or 5000 for local
 app.use((0, cors_1.default)()); // Enable CORS for all routes
 app.use(body_parser_1.default.json()); // Enable parsing of JSON bodies
 // Set up the PostgreSQL connection pool
