@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();  // Prevent form submission from reloading the page
-    const response = await fetch('https://namelog-8e62b6515f53.herokuapp.com/name', {
+    const response = await fetch('https://namelog-8e62b6515f53.herokuapp.com/names', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchNames = async () => {
-      const response = await fetch('https://namelog-8e62b6515f53.herokuapp.com/name');  // Fetch all names from the server
+      const response = await fetch('https://namelog-8e62b6515f53.herokuapp.com/names');  // Fetch all names from the server
       const data = await response.json();  // Parse the response as JSON
       setNames(data);  // Update the state with the fetched names
     };
